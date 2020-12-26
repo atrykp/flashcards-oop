@@ -1,0 +1,43 @@
+html {
+    font-family: 'Be Vietnam', sans-serif;
+
+}
+
+.moveToCan {
+    margin: 5%;
+    background-color: lightgray;
+    display: flex;
+    font-size: 2rem;
+}
+
+.newCards {
+    background-color: lightblue;
+    display: flex;
+    height: 50vh;
+    flex-wrap: wrap;
+
+}
+
+.canCards {
+    background-color: lightgreen;
+    display: flex;
+    height: 50vh;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #fff;
+    margin: 2%;
+    height: 20vh;
+}
+
+.txtInCard {
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hide {
+    display: none;
+}
