@@ -1,43 +1,126 @@
-html {
-    font-family: 'Be Vietnam', sans-serif;
+* {
+  padding: 0;
+  margin: 0;
+}
 
+html {
+  font-family: "Be Vietnam", sans-serif;
+  font-size: 10px;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.addSection {
+  background-color: rgb(53, 55, 59);
+
+  width: 100%;
+}
+.addSection input,
+button {
+  font-size: 2rem;
+  padding: 1% 1%;
+  margin: 1% 1%;
+}
+.addSection button {
+  background-color: white;
+  border: white;
+  padding: 1% 5%;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: 0.2s;
+}
+.addSection button:hover {
+  background-color: rgba(168, 198, 255, 0.555);
+  color: white;
 }
 
 .moveToCan {
-    margin: 5%;
-    background-color: lightgray;
-    display: flex;
-    font-size: 2rem;
+  background-color: rgb(156, 156, 156);
+  position: relative;
+}
+.moveToCan button,
+p {
+  font-size: 1.5rem;
+}
+.moveToCan button {
+  top: 3%;
+  right: 2%;
+}
+.moveToCan p {
+  top: 1%;
+  right: 3.5%;
+  color: white;
 }
 
 .newCards {
-    background-color: lightblue;
-    display: flex;
-    height: 50vh;
-    flex-wrap: wrap;
-
+  padding: 8% 0;
+  background-color: lightblue;
+  display: flex;
+  min-height: 100vh;
+  flex-wrap: wrap;
 }
 
 .canCards {
-    background-color: lightgreen;
-    display: flex;
-    height: 50vh;
-    flex-wrap: wrap;
+  padding: 8% 0;
+  background-color: lightgreen;
+  display: flex;
+  min-height: 100vh;
+  flex-wrap: wrap;
 }
 
 .card {
-    background-color: #fff;
-    margin: 2%;
-    height: 20vh;
+  box-sizing: border-box;
+  background-color: #fff;
+  margin: 0.5%;
+  width: 23%;
+  height: 25vh;
+  min-width: 23%;
+  min-height: 25%;
+  font-size: 2rem;
 }
 
 .txtInCard {
-    height: 15vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card button {
+  font-size: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+.cardBtns {
+  text-align: center;
 }
 
 .hide {
-    display: none;
+  display: none;
+}
+
+@media (max-width: 1020px) {
+  .card {
+    width: 23%;
+    height: 25vh;
+    min-width: 30%;
+    min-height: 25%;
+  }
+}
+@media (max-width: 790px) {
+  .card {
+    min-width: 45%;
+    min-height: 25%;
+  }
+  .addSection input,
+  .addSection button {
+    width: 90%;
+  }
+}
+@media (max-width: 530px) {
+  .card {
+    min-width: 80%;
+    min-height: 25%;
+  }
 }

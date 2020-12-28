@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
-</head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
 
-<body>
+  <body>
     <div class="addSection">
-        <input type="text" class="firstTxt">
-        <input type="text" class="secondTxt">
-        <button class="createCardBtn">Dodaj fiszkę</button>
+      <input
+        type="text"
+        class="firstTxt"
+        placeholder="Pierwsza strona fiszki"
+      />
+      <input type="text" class="secondTxt" placeholder="Druga strona fiszki" />
+      <button class="createCardBtn">Dodaj fiszkę</button>
     </div>
-    <div class="moveToCan">
-        <p>Umiesz już <span class="counter">0</span> fiszek.</p>
-        <button class="changeViewBtn">Pokaż które umiesz</button>
+    <div class="moveToCan clearfix">
+      <p>
+        Umiesz już <strong><span class="counter">0</span></strong> fiszek
+      </p>
+      <button class="changeViewBtn">Pokaż które umiesz</button>
     </div>
     <div class="newCards"></div>
     <div class="canCards hide"></div>
     <script type="module" src="./js/main.js"></script>
-</body>
-
+  </body>
 </html>
