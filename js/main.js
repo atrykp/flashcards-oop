@@ -13,6 +13,12 @@ class Main extends Common {
     this.init();
   }
   init() {
+    if (localStorage.getItem("cardsArr")) {
+      let cards = JSON.parse(localStorage.getItem("cardsArr"));
+      cards.forEach((element) => {
+        this.createCard(element);
+      });
+    }
     this.addListenersToPageElements();
   }
 
@@ -45,6 +51,7 @@ class Main extends Common {
     this.allCardsArr.push(element);
     box.addCardToBox(currentCard);
     this.addLiseteners(element, currentCard);
+    localStorage.setItem("cardsArr", JSON.stringify(this.allCardsArr));
   }
 
   addLiseteners(cardObj, card) {
@@ -65,6 +72,7 @@ class Main extends Common {
 
     cardObj.removeBtn.addEventListener("click", () => {
       card.remove();
+      localStorage.removeItem(card);
       box.updateCouter();
     });
   }
