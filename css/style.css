@@ -113,14 +113,26 @@ p {
     min-width: 45%;
     min-height: 25%;
   }
+
   .addSection input,
   .addSection button {
     width: 90%;
+    margin: 1% auto;
   }
 }
 @media (max-width: 530px) {
+  .addSection {
+    height: 25vh;
+    padding: 1% 0;
+  }
   .card {
     min-width: 80%;
     min-height: 25%;
+  }
+  .addSection input,
+  .addSection button {
+    display: block;
+    width: 90%;
+    margin: 2% auto;
   }
 }
