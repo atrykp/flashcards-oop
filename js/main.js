@@ -4,6 +4,7 @@ import { box } from "./Box.js";
 import { Common } from "./Common.js";
 
 const CHANGE_VIEW_BTN_CLASS = ".changeViewBtn";
+let counter = 0;
 
 class Main extends Common {
   constructor() {
@@ -48,6 +49,9 @@ class Main extends Common {
   createCard(card) {
     let element = new Card(card);
     let currentCard = element.render();
+    element.id = counter;
+    currentCard.setAttribute("data-key", counter);
+    counter++;
     this.allCardsArr.push(element);
     box.addCardToBox(currentCard);
     this.addLiseteners(element, currentCard);
@@ -71,6 +75,7 @@ class Main extends Common {
     });
 
     cardObj.removeBtn.addEventListener("click", () => {
+      let idCard = card.dataset.key;
       card.remove();
       localStorage.removeItem(card);
       box.updateCouter();
