@@ -75,9 +75,15 @@ class Main extends Common {
     });
 
     cardObj.removeBtn.addEventListener("click", () => {
-      let idCard = card.dataset.key;
+      let idCard = parseInt(card.dataset.key);
+      const currCard = this.allCardsArr.filter(
+        (element) => element.id !== idCard
+      );
+      console.log(this.allCardsArr);
+      this.allCardsArr = currCard;
+      console.log(this.allCardsArr);
       card.remove();
-      localStorage.removeItem(card);
+      localStorage.setItem("cardsArr", JSON.stringify(this.allCardsArr));
       box.updateCouter();
     });
   }
