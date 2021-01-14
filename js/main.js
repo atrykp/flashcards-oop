@@ -47,23 +47,37 @@ class Main extends Common {
   }
 
   createCard(card) {
+    if (card.status === "can") {
+      console.log("działamy");
+    }
+
     let element = new Card(card);
     let currentCard = element.render();
     element.id = counter;
+    if (!card.status) {
+      element.status = "cant";
+    }
+    currentCard.setAttribute("data-key", counter);
     currentCard.setAttribute("data-key", counter);
     counter++;
-    this.allCardsArr.push(element);
-    box.addCardToBox(currentCard);
+    if (card.status === "can") {
+      box.moveToCan(currentCard);
+      box.updateCouter();
+    } else box.addCardToBox(currentCard);
+
     this.addLiseteners(element, currentCard);
+    this.allCardsArr.push(element);
     localStorage.setItem("cardsArr", JSON.stringify(this.allCardsArr));
   }
 
   addLiseteners(cardObj, card) {
     cardObj.iCanBtn.addEventListener("click", () => {
+      cardObj.status = "can";
       box.moveToCan(card);
       cardObj.iCanBtn.classList.add("hide");
       cardObj.iCantBtn.classList.remove("hide");
       box.updateCouter();
+      localStorage.setItem("cardsArr", JSON.stringify(this.allCardsArr));
     });
 
     cardObj.iCantBtn.addEventListener("click", () => {
@@ -79,9 +93,7 @@ class Main extends Common {
       const currCard = this.allCardsArr.filter(
         (element) => element.id !== idCard
       );
-      console.log(this.allCardsArr);
       this.allCardsArr = currCard;
-      console.log(this.allCardsArr);
       card.remove();
       localStorage.setItem("cardsArr", JSON.stringify(this.allCardsArr));
       box.updateCouter();
