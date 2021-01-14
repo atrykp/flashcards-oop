@@ -22,6 +22,9 @@ class Main extends Common {
     }
     this.addListenersToPageElements();
   }
+  updateLocalStorage() {
+    localStorage.setItem("cardsArr", JSON.stringify(this.allCardsArr));
+  }
 
   addListenersToPageElements() {
     content.firstInput.addEventListener("keydown", ({ keyCode }) => {
@@ -67,7 +70,7 @@ class Main extends Common {
 
     this.addLiseteners(element, currentCard);
     this.allCardsArr.push(element);
-    localStorage.setItem("cardsArr", JSON.stringify(this.allCardsArr));
+    this.updateLocalStorage();
   }
 
   addLiseteners(cardObj, card) {
@@ -77,7 +80,7 @@ class Main extends Common {
       cardObj.iCanBtn.classList.add("hide");
       cardObj.iCantBtn.classList.remove("hide");
       box.updateCouter();
-      localStorage.setItem("cardsArr", JSON.stringify(this.allCardsArr));
+      this.updateLocalStorage();
     });
 
     cardObj.iCantBtn.addEventListener("click", () => {
@@ -95,7 +98,7 @@ class Main extends Common {
       );
       this.allCardsArr = currCard;
       card.remove();
-      localStorage.setItem("cardsArr", JSON.stringify(this.allCardsArr));
+      this.updateLocalStorage();
       box.updateCouter();
     });
   }
