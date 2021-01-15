@@ -24,26 +24,18 @@ class Main extends Common {
     this.addListenersToPageElements();
   }
   createCard(card) {
-    if (card.status === "can") {
-      console.log(this.localStorageArr);
-    }
-
     let element = new Card(card);
-
     let currentCard = element.render();
     element.id = counter;
     if (!card.status) {
       element.status = "cant";
     }
     currentCard.setAttribute("data-key", counter);
-    currentCard.setAttribute("data-key", counter);
     counter++;
     if (card.status === "can") {
       box.moveToCan(currentCard);
       box.updateCouter();
     } else box.addCardToBox(currentCard);
-    console.log(element);
-
     this.addLiseteners(element, currentCard);
     this.allCardsArr.push(element);
     this.updateLocalStorage();
@@ -71,7 +63,7 @@ class Main extends Common {
     currCardArr.forEach((element) => {
       let cardObj = {};
       cardObj.firstPage = element.firstPage;
-      cardObj.secondPage = element.firstPage;
+      cardObj.secondPage = element.secondPage;
       cardObj.status = element.status;
       storageArr.push(cardObj);
     });
