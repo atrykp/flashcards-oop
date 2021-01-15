@@ -1,5 +1,5 @@
 export class Card {
-  constructor({ firstPage, secondPage }) {
+  constructor({ firstPage, secondPage, status = "cant" }) {
     this.firstPage = firstPage;
     this.secondPage = secondPage;
     this.init();
@@ -32,6 +32,7 @@ export class Card {
     this.buttonsArea.classList.add("cardBtns");
     this.card.classList.add("card");
     this.txtInCard.classList.add("txtInCard");
+    // jezeli status can to ican btn hide------------------------------------------
     this.iCantBtn.classList.add("hide");
   }
   addEventsListeners() {

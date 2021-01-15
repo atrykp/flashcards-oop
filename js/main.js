@@ -10,6 +10,7 @@ class Main extends Common {
   constructor() {
     super();
     this.allCardsArr = [];
+    this.localStorageArr = [];
     this.changeViewBtn = this.bindToHtmlElement(CHANGE_VIEW_BTN_CLASS);
     this.init();
   }
@@ -22,8 +23,30 @@ class Main extends Common {
     }
     this.addListenersToPageElements();
   }
-  updateLocalStorage() {
-    localStorage.setItem("cardsArr", JSON.stringify(this.allCardsArr));
+  createCard(card) {
+    if (card.status === "can") {
+      console.log("działamy");
+    }
+
+    let element = new Card(card);
+
+    let currentCard = element.render();
+    element.id = counter;
+    if (!card.status) {
+      element.status = "cant";
+    }
+    currentCard.setAttribute("data-key", counter);
+    currentCard.setAttribute("data-key", counter);
+    counter++;
+    if (card.status === "can") {
+      box.moveToCan(currentCard);
+      box.updateCouter();
+    } else box.addCardToBox(currentCard);
+    console.log(element);
+
+    this.addLiseteners(element, currentCard);
+    this.allCardsArr.push(element);
+    this.updateLocalStorage();
   }
 
   addListenersToPageElements() {
@@ -42,35 +65,24 @@ class Main extends Common {
       this.checkInputsValue();
     });
   }
+  updateLocalStorage() {
+    const currCardArr = [...this.allCardsArr];
+    let storageArr = [];
+    currCardArr.forEach((element) => {
+      let cardObj = {};
+      cardObj.firstPage = element.firstPage;
+      cardObj.secondPage = element.firstPage;
+      cardObj.status = element.status;
+      storageArr.push(cardObj);
+    });
+    this.localStorageArr = storageArr;
+    localStorage.setItem("cardsArr", JSON.stringify(this.localStorageArr));
+  }
 
   checkInputsValue() {
     let card = content.getContent();
     if (!card) return;
     this.createCard(card);
-  }
-
-  createCard(card) {
-    if (card.status === "can") {
-      console.log("działamy");
-    }
-
-    let element = new Card(card);
-    let currentCard = element.render();
-    element.id = counter;
-    if (!card.status) {
-      element.status = "cant";
-    }
-    currentCard.setAttribute("data-key", counter);
-    currentCard.setAttribute("data-key", counter);
-    counter++;
-    if (card.status === "can") {
-      box.moveToCan(currentCard);
-      box.updateCouter();
-    } else box.addCardToBox(currentCard);
-
-    this.addLiseteners(element, currentCard);
-    this.allCardsArr.push(element);
-    this.updateLocalStorage();
   }
 
   addLiseteners(cardObj, card) {
@@ -87,8 +99,8 @@ class Main extends Common {
       box.addCardToBox(card);
       cardObj.iCanBtn.classList.remove("hide");
       cardObj.iCantBtn.classList.add("hide");
-
       box.updateCouter();
+      this.updateLocalStorage();
     });
 
     cardObj.removeBtn.addEventListener("click", () => {
