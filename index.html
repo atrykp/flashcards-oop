@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Flashcards</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Be+Vietnam&display=swap"
@@ -14,19 +14,15 @@
 
   <body>
     <div class="addSection">
-      <input
-        type="text"
-        class="firstTxt"
-        placeholder="Pierwsza strona fiszki"
-      />
-      <input type="text" class="secondTxt" placeholder="Druga strona fiszki" />
-      <button class="createCardBtn">Dodaj fiszkę</button>
+      <input type="text" class="firstTxt" placeholder="front of the card" />
+      <input type="text" class="secondTxt" placeholder="back of the card" />
+      <button class="createCardBtn">add flashcard</button>
     </div>
     <div class="moveToCan clearfix">
       <p>
-        Umiesz już <strong><span class="counter">0</span></strong> fiszek
+        I can <strong><span class="counter">0</span></strong> cards
       </p>
-      <button class="changeViewBtn">Pokaż które umiesz</button>
+      <button class="changeViewBtn">go to I can</button>
     </div>
     <div class="newCards"></div>
     <div class="canCards hide"></div>

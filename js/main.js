@@ -110,11 +110,11 @@ class Main extends Common {
 
   changeView() {
     if (!box.counter && box.canCards.classList.contains("hide"))
-      return alert("Nic tam jeszcze nie ma ;)");
+      return alert("Is nothing there yet ;)");
     if (box.canCards.classList.contains("hide"))
-      this.changeViewBtn.textContent = "wróć do nauki";
+      this.changeViewBtn.textContent = "go back to learning";
     if (!box.canCards.classList.contains("hide"))
-      this.changeViewBtn.textContent = "pokaż które umiem";
+      this.changeViewBtn.textContent = "go to I can";
     box.newCards.classList.toggle("hide");
     box.canCards.classList.toggle("hide");
   }

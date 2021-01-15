@@ -7,6 +7,9 @@ html {
   font-family: "Be Vietnam", sans-serif;
   font-size: 10px;
 }
+button {
+  text-transform: uppercase;
+}
 .clearfix::after {
   content: "";
   display: block;
@@ -27,7 +30,7 @@ button {
   background-color: white;
   border: white;
   padding: 1% 5%;
-  text-transform: uppercase;
+
   letter-spacing: 2px;
   transition: 0.2s;
 }

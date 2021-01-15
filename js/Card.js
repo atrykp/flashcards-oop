@@ -24,10 +24,10 @@ export class Card {
     this.iCantBtn = document.createElement("button");
   }
   addTxtToButtons() {
-    this.iCanBtn.textContent = "umiem";
-    this.switchSideBtn.textContent = "odwróć";
-    this.removeBtn.textContent = "usuń";
-    this.iCantBtn.textContent = "nie umiem";
+    this.iCanBtn.textContent = "i can";
+    this.switchSideBtn.textContent = "turn over";
+    this.removeBtn.textContent = "delete";
+    this.iCantBtn.textContent = "i can't";
   }
   addCalasses() {
     this.buttonsArea.classList.add("cardBtns");
