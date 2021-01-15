@@ -25,7 +25,7 @@ class Main extends Common {
   }
   createCard(card) {
     if (card.status === "can") {
-      console.log("działamy");
+      console.log(this.localStorageArr);
     }
 
     let element = new Card(card);
@@ -97,6 +97,7 @@ class Main extends Common {
 
     cardObj.iCantBtn.addEventListener("click", () => {
       box.addCardToBox(card);
+      cardObj.status = "cant";
       cardObj.iCanBtn.classList.remove("hide");
       cardObj.iCantBtn.classList.add("hide");
       box.updateCouter();
