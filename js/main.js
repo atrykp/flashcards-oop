@@ -76,35 +76,44 @@ class Main extends Common {
     if (!card) return;
     this.createCard(card);
   }
+  handleClickICanBtn(cardObj, card) {
+    cardObj.status = "can";
+    box.moveToCan(card);
+    cardObj.iCanBtn.classList.add("hide");
+    cardObj.iCantBtn.classList.remove("hide");
+    box.updateCouter();
+    this.updateLocalStorage();
+  }
+  handleClickICanNotBtn(cardObj, card) {
+    box.addCardToBox(card);
+    cardObj.status = "cant";
+    cardObj.iCanBtn.classList.remove("hide");
+    cardObj.iCantBtn.classList.add("hide");
+    box.updateCouter();
+    this.updateLocalStorage();
+  }
+  handleClickRemoveBtn(cardObj, card) {
+    let idCard = parseInt(card.dataset.key);
+    const currCard = this.allCardsArr.filter(
+      (element) => element.id !== idCard
+    );
+    this.allCardsArr = currCard;
+    card.remove();
+    this.updateLocalStorage();
+    box.updateCouter();
+  }
 
   addLiseteners(cardObj, card) {
     cardObj.iCanBtn.addEventListener("click", () => {
-      cardObj.status = "can";
-      box.moveToCan(card);
-      cardObj.iCanBtn.classList.add("hide");
-      cardObj.iCantBtn.classList.remove("hide");
-      box.updateCouter();
-      this.updateLocalStorage();
+      this.handleClickICanBtn(cardObj, card);
     });
 
     cardObj.iCantBtn.addEventListener("click", () => {
-      box.addCardToBox(card);
-      cardObj.status = "cant";
-      cardObj.iCanBtn.classList.remove("hide");
-      cardObj.iCantBtn.classList.add("hide");
-      box.updateCouter();
-      this.updateLocalStorage();
+      this.handleClickICanNotBtn(cardObj, card);
     });
 
     cardObj.removeBtn.addEventListener("click", () => {
-      let idCard = parseInt(card.dataset.key);
-      const currCard = this.allCardsArr.filter(
-        (element) => element.id !== idCard
-      );
-      this.allCardsArr = currCard;
-      card.remove();
-      this.updateLocalStorage();
-      box.updateCouter();
+      this.handleClickRemoveBtn(cardObj, card);
     });
   }
 
