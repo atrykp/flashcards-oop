@@ -1,141 +1,189 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 html {
   font-family: "Be Vietnam", sans-serif;
   font-size: 10px;
 }
-button {
-  text-transform: uppercase;
-}
-.clearfix::after {
-  content: "";
-  display: block;
-  clear: both;
+body {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  justify-content: space-around;
+  align-content: flex-start;
+  background-color: #212135;
 }
 .addSection {
-  background-color: rgb(53, 55, 59);
-
-  width: 100%;
+  margin-top: 4%;
+  background-color: #363657;
+  height: 35vh;
+  flex-basis: 95%;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 15px;
+  max-width: 1200px;
+  padding: 2%;
 }
-.addSection input,
-button {
-  font-size: 2rem;
-  padding: 1% 1%;
-  margin: 1% 1%;
+.addSection input {
+  font-size: 2.5rem;
+  flex-basis: 90%;
+  padding: 2%;
+  margin: auto;
+  border-radius: 10px;
+  border: 1px solid black;
+  outline: none;
+  transition: 0.1s;
+  background-color: #ffffff;
+  max-width: 450px;
+  max-height: 50px;
+}
+.addSection input:focus {
+  border-color: yellowgreen;
 }
 .addSection button {
-  background-color: white;
-  border: white;
-  padding: 1% 5%;
-
-  letter-spacing: 2px;
-  transition: 0.2s;
+  flex-basis: 70%;
+  margin: auto;
+  font-size: 2rem;
+  padding: 2% 1.5%;
+  text-transform: uppercase;
+  border-radius: 10px;
+  border: 1px solid#0e7a80;
+  color: #212135;
+  outline: none;
+  background-color: #00d6d1;
+  max-width: 360px;
 }
-.addSection button:hover {
-  background-color: rgba(168, 198, 255, 0.555);
-  color: white;
-}
-
 .moveToCan {
-  background-color: rgb(156, 156, 156);
-  position: relative;
-}
-.moveToCan button,
-p {
-  font-size: 1.5rem;
-}
-.moveToCan button {
-  top: 3%;
-  right: 2%;
+  background-color: #363657;
+  border-radius: 15px;
+  flex-basis: 95%;
+  height: 10vh;
+  margin-top: 4%;
+  font-size: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
 }
 .moveToCan p {
-  top: 1%;
-  right: 3.5%;
-  color: white;
+  color: #efeff0;
+  margin-left: 2%;
 }
-
-.newCards {
-  padding: 8% 0;
-  background-color: lightblue;
-  display: flex;
-  min-height: 100vh;
-  flex-wrap: wrap;
+.moveToCan button {
+  align-self: stretch;
+  font-size: 1.5rem;
+  padding: 0 5%;
+  border-radius: 0 15px 15px 0;
+  border: none;
+  background-color: #0e7a80;
+  color: #efeff0;
+  text-transform: uppercase;
 }
-
+.newCards,
 .canCards {
-  padding: 8% 0;
-  background-color: lightgreen;
   display: flex;
-  min-height: 100vh;
   flex-wrap: wrap;
+  flex-basis: 100%;
+  justify-content: space-around;
+  min-height: 60vh;
+  margin-top: 4%;
+  padding-bottom: 10%;
+  max-width: 1400px;
 }
-
+.canCards {
+  background-color: #0e7a80;
+}
 .card {
-  box-sizing: border-box;
-  background-color: #fff;
-  margin: 0.5%;
-  width: 23%;
-  height: 25vh;
-  min-width: 23%;
-  min-height: 25%;
-  font-size: 2rem;
+  background-color: #363657;
+  flex-basis: 90%;
+  max-width: 350px;
+
+  min-height: 40vh;
+
+  font-size: 3rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  margin-top: 4%;
+  border-radius: 15px;
 }
 
 .txtInCard {
-  height: 70%;
+  align-self: center;
+  flex-grow: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
-}
-.card button {
-  font-size: 1.5rem;
+  color: #efeff0;
+  font-size: 4rem;
   text-align: center;
-  text-transform: uppercase;
+  padding: 3%;
 }
 .cardBtns {
-  text-align: center;
+  width: 95%;
+
+  display: flex;
+  justify-content: space-around;
+  margin: 0% auto 5%;
+}
+.cardBtns button {
+  font-size: 1.4rem;
+  padding: 2%;
+  text-transform: uppercase;
+  flex-basis: 30%;
+  border-radius: 10px;
+  border: 1px solid #0e7a80;
+  background-color: #00d6d1;
+  color: #212135;
 }
 
 .hide {
   display: none;
 }
-
-@media (max-width: 1020px) {
-  .card {
-    width: 23%;
-    height: 25vh;
-    min-width: 30%;
-    min-height: 25%;
+@media (min-width: 600px) {
+  .addSection input {
+    padding: 1% 2%;
+  }
+  .addSection button {
+    padding: 1%;
   }
 }
-@media (max-width: 790px) {
-  .card {
-    min-width: 45%;
-    min-height: 25%;
+@media (min-width: 700px) {
+  .newCards,
+  .canCards {
+    padding-right: 4%;
+    padding-left: 4%;
+    justify-content: flex-start;
   }
-
-  .addSection input,
-  .addSection button {
-    width: 90%;
-    margin: 1% auto;
+  .card {
+    flex-basis: 45%;
+    margin: 2%;
   }
 }
-@media (max-width: 530px) {
-  .addSection {
-    height: 25vh;
-    padding: 1% 0;
+@media (min-width: 900px) {
+  .addSection input {
+    flex-basis: 40%;
+  }
+  .newCards,
+  .canCards {
+    padding-right: 2%;
+    padding-left: 2%;
   }
   .card {
-    min-width: 80%;
-    min-height: 25%;
+    flex-basis: 40%;
+    margin: 1.5%;
   }
-  .addSection input,
-  .addSection button {
-    display: block;
-    width: 90%;
-    margin: 2% auto;
+}
+@media (min-width: 1000px) {
+  .card {
+    flex-basis: 30%;
+  }
+}
+@media (min-width: 1240px) {
+  .card {
+    flex-basis: 22%;
   }
 }
