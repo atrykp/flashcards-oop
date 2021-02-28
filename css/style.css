@@ -55,6 +55,13 @@ body {
   outline: none;
   background-color: #00d6d1;
   max-width: 360px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.addSection button:hover {
+  background-color: #0e7a80;
+  color: white;
 }
 .moveToCan {
   background-color: #363657;
@@ -81,6 +88,11 @@ body {
   background-color: #0e7a80;
   color: #efeff0;
   text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.moveToCan button:hover {
+  background-color: #0d7277;
 }
 .newCards,
 .canCards {
@@ -94,8 +106,9 @@ body {
   max-width: 1400px;
 }
 .canCards {
-  background-color: #0e7a80;
+  background: linear-gradient(#212135, #0e7a80);
 }
+
 .card {
   background-color: #363657;
   flex-basis: 90%;
@@ -135,6 +148,12 @@ body {
   border: 1px solid #0e7a80;
   background-color: #00d6d1;
   color: #212135;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.cardBtns button:hover {
+  color: white;
+  background-color: #0e7a80;
 }
 
 .hide {
