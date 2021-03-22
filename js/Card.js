@@ -40,9 +40,10 @@ export class Card {
     }
   }
   addEventsListeners() {
-    this.switchSideBtn.addEventListener("click", () =>
-      this.changeTxtContet(this.firstPage, this.secondPage)
-    );
+    this.switchSideBtn.addEventListener("click", () => {
+      this.changeTxtContet(this.firstPage, this.secondPage);
+      this.card.classList.toggle("back");
+    });
   }
 
   render() {

@@ -104,10 +104,20 @@ body {
   padding-bottom: 33%;
   max-width: 1400px;
 }
+
 .canCards {
   background: linear-gradient(#212135, #0e7a80);
 }
-
+@keyframes appear {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 .card {
   background-color: #363657;
   flex-basis: 90%;
@@ -116,9 +126,15 @@ body {
   font-size: 3rem;
   display: flex;
   flex-direction: column;
-
   margin-top: 4%;
   border-radius: 15px;
+  animation: appear 0.2s ease-in;
+}
+
+.back {
+  background-color: #363646;
+
+  transition: 0.2s linear;
 }
 
 .txtInCard {
